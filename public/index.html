@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>StudyBuddy AI</title>
+  <meta name="description" content="An AI study assistant: explanations, quizzes, summaries, flashcards and study plans." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">📚 StudyBuddy</div>
+      <button class="btn primary" id="newChat">+ New chat</button>
+
+      <label class="field">
+        <span>Mode</span>
+        <select id="mode">
+          <option value="explain">💡 Explain a topic</option>
+          <option value="quiz">❓ Quiz me</option>
+          <option value="summarize">📝 Summarize notes</option>
+          <option value="flashcards">🗂️ Make flashcards</option>
+          <option value="plan">📅 Study plan</option>
+        </select>
+      </label>
+      <label class="field">
+        <span>Subject (optional)</span>
+        <input id="subject" type="text" placeholder="e.g. Biology, Calculus" maxlength="100" />
+      </label>
+      <label class="field">
+        <span>Level</span>
+        <select id="level">
+          <option value="">Any</option>
+          <option>Middle school</option>
+          <option>High school</option>
+          <option>University</option>
+          <option>Graduate</option>
+        </select>
+      </label>
+
+      <div class="history-title">Your chats</div>
+      <ul class="history" id="history"></ul>
+      <button class="btn ghost small" id="clearAll">Delete all chats</button>
+    </aside>
+    <div class="backdrop" id="backdrop"></div>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn" id="menuBtn" aria-label="Open menu">☰</button>
+        <div class="title" id="chatTitle">New chat</div>
+      </header>
+
+      <section class="messages" id="messages" aria-live="polite">
+        <div class="empty" id="empty">
+          <h1>What are we studying today?</h1>
+          <p>Ask a question, paste your notes, or pick a starter:</p>
+          <div class="suggestions">
+            <button data-mode="explain" data-text="Explain photosynthesis like I'm 15.">Explain photosynthesis</button>
+            <button data-mode="quiz" data-text="Quiz me on World War II.">Quiz me on WWII</button>
+            <button data-mode="flashcards" data-text="Make flashcards for the main parts of a cell.">Cell biology flashcards</button>
+            <button data-mode="plan" data-text="I have a math and chemistry exam in 2 weeks and can study 2 hours a day. Make me a plan.">2-week exam plan</button>
+          </div>
+        </div>
+      </section>
+
+      <form class="composer" id="composer">
+        <textarea id="input" rows="1" placeholder="Ask anything… (Enter to send, Shift+Enter for a new line)" required></textarea>
+        <button type="submit" class="btn primary" id="sendBtn">Send</button>
+        <button type="button" class="btn danger" id="stopBtn" hidden>Stop</button>
+      </form>
+      <p class="disclaimer">AI can make mistakes. Double-check important facts.</p>
+    </main>
+  </div>
+</body>
+</html>

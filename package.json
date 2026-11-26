@@ -1,0 +1,20 @@
+{
+  "name": "ai-study-chatbot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "AI study assistant chatbot - static frontend + Netlify Function backend powered by Claude",
+  "scripts": {
+    "dev": "netlify dev",
+    "check": "node --check netlify/functions/chat.mjs && node --check public/app.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.14.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^27.20.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
