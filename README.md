@@ -1,7 +1,7 @@
 # 📚 StudyBuddy — AI Study Chatbot
 
 A complete AI study assistant you can deploy on Netlify for free.
-
+Live: https://ai-8chatbot.netlify.app/
 - **Frontend** (`public/`): plain HTML/CSS/JS chat app, no build step. Streams answers live, renders Markdown (tables, code), saves chats in your browser, works on phones, supports dark mode.
 - **Backend** (`netlify/functions/chat.mjs`): a Netlify Function at `/api/chat` that calls Claude (Anthropic API). Your API key stays on the server and is never sent to the browser.
 
